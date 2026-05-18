@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Inloggen — Op d'n Buiten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #26222B;
+  --ink-soft: #827E88;
+  --pink: #FF5B96;
+  --pink-deep: #C11C63;
+  --teal: #0FA88C;
+  --bg: #F4F2EE;
+  --hairline: #EDEBE5;
+  --ease-out: cubic-bezier(0.16, 1, 0.30, 1);
+}
+html, body { height: 100%; }
+body {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.011em;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+.material-symbols-rounded { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+
+.layout { display: flex; min-height: 100%; }
+
+/* ---------- Visueel paneel (foto) ---------- */
+.visual {
+  flex: 0 0 46%;
+  position: relative;
+  background-color: #2A1426;
+  background-image:
+    linear-gradient(158deg, rgba(193,28,99,0.60) 0%, rgba(26,20,30,0.88) 100%),
+    url('https://picsum.photos/seed/opdnbuiten/1200/1700');
+  background-size: cover;
+  background-position: center;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 44px;
+  overflow: hidden;
+}
+.visual-brand { display: flex; align-items: center; gap: 12px; position: relative; z-index: 1; }
+.visual-mark {
+  width: 46px; height: 46px; border-radius: 13px;
+  background: rgba(255,255,255,0.16);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.28);
+  display: flex; align-items: center; justify-content: center;
+}
+.visual-mark .material-symbols-rounded { color: #fff; font-size: 25px; font-variation-settings: 'FILL' 1,'wght' 500,'GRAD' 0,'opsz' 24; }
+.visual-brand-name { color: #fff; font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
+.visual-brand-sub { color: rgba(255,255,255,0.72); font-size: 12.5px; font-weight: 500; }
+
+.visual-copy { position: relative; z-index: 1; }
+.visual-copy h2 {
+  color: #fff; font-weight: 700; font-size: 33px; line-height: 1.18;
+  letter-spacing: -0.03em; max-width: 13ch; margin-bottom: 14px;
+}
+.visual-copy p { color: rgba(255,255,255,0.82); font-size: 14.5px; line-height: 1.6; max-width: 34ch; }
+.visual-points { margin-top: 26px; display: flex; flex-direction: column; gap: 11px; }
+.visual-point { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.92); font-size: 13.5px; font-weight: 500; }
+.visual-point .material-symbols-rounded {
+  font-size: 18px; color: #fff;
+  background: rgba(255,255,255,0.18); border-radius: 50%;
+  width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center;
+  font-variation-settings: 'FILL' 1,'wght' 600,'GRAD' 0,'opsz' 20;
+}
+
+/* ---------- Formulierpaneel ---------- */
+.form-panel {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 48px 40px;
+}
+.form-inner { width: 100%; max-width: 380px; animation: rise 0.5s var(--ease-out); }
+@keyframes rise { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform:none; } }
+
+.eyebrow {
+  font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--pink-deep); margin-bottom: 12px;
+}
+h1 { font-weight: 700; font-size: 30px; line-height: 1.15; letter-spacing: -0.032em; margin-bottom: 7px; }
+.intro { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 30px; }
+
+.field { margin-bottom: 17px; }
+.field label {
+  display: block; font-size: 12.5px; font-weight: 600;
+  color: var(--ink); margin-bottom: 7px;
+}
+.field input {
+  width: 100%; height: 52px; padding: 14px 16px;
+  background: #fff;
+  border: 1.5px solid var(--hairline);
+  border-radius: 13px;
+  font-family: inherit; font-size: 16px; font-weight: 500;
+  color: var(--ink); outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field input::placeholder { color: #B9B5BD; }
+.field input:focus { border-color: var(--pink); box-shadow: 0 0 0 4px rgba(255,91,150,0.13); }
+
+.btn-login {
+  width: 100%; height: 52px; margin-top: 6px;
+  border: none; border-radius: 9999px;
+  background: var(--ink); color: #fff;
+  font-family: inherit; font-size: 15px; font-weight: 600;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  box-shadow: 0 6px 18px rgba(28,24,32,0.22);
+  transition: transform 0.13s var(--ease-out), box-shadow 0.15s;
+}
+.btn-login .material-symbols-rounded { font-size: 19px; }
+.btn-login:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(28,24,32,0.28); }
+.btn-login:active { transform: translateY(0) scale(0.99); }
+.btn-login:disabled { opacity: 0.6; cursor: default; transform: none; }
+
+.error-banner {
+  display: none; align-items: center; gap: 8px;
+  background: #FFE0EA; color: #9A0F4A;
+  border-radius: 12px; padding: 12px 14px;
+  font-size: 13px; font-weight: 600; margin-bottom: 18px;
+}
+.error-banner.show { display: flex; }
+.error-banner .material-symbols-rounded { font-size: 18px; }
+
+.demo-box { margin-top: 30px; border-top: 1px solid var(--hairline); padding-top: 22px; }
+.demo-title {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--ink-soft); margin-bottom: 12px;
+}
+.demo-account {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; text-align: left;
+  background: #fff;
+  border: 1.5px solid var(--hairline);
+  border-radius: 14px;
+  padding: 11px 13px; cursor: pointer;
+  font-family: inherit; margin-bottom: 9px;
+  transition: transform 0.14s var(--ease-out), border-color 0.15s, box-shadow 0.15s;
+}
+.demo-account:hover { transform: translateY(-2px); border-color: #DFDCD4; box-shadow: 0 6px 16px rgba(28,24,32,0.07); }
+.demo-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13.5px; font-weight: 700; color: #fff; flex-shrink: 0;
+}
+.demo-info { flex: 1; min-width: 0; }
+.demo-name { font-size: 14px; font-weight: 700; }
+.demo-meta { font-size: 12px; color: var(--ink-soft); font-weight: 500; }
+.demo-role {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.05em;
+  padding: 4px 10px; border-radius: 9999px; flex-shrink: 0;
+}
+.role-admin { background: #ECEAE4; color: var(--ink); }
+.role-staff { background: #FFE6EE; color: var(--pink-deep); }
+.demo-hint { font-size: 11px; color: var(--ink-soft); margin-top: 4px; }
+
+/* ---------- Mobiel ---------- */
+@media (max-width: 860px) {
+  .layout { flex-direction: column; }
+  .visual {
+    flex: none;
+    min-height: 252px;
+    padding: 28px 24px calc(28px + 26px);
+    padding-top: calc(28px + env(safe-area-inset-top));
+  }
+  .visual-copy h2 { font-size: 25px; }
+  .visual-copy p, .visual-points { display: none; }
+  .form-panel {
+    margin-top: -26px;
+    background: var(--bg);
+    border-radius: 26px 26px 0 0;
+    position: relative; z-index: 2;
+    padding: 32px 24px calc(32px + env(safe-area-inset-bottom));
+    align-items: flex-start;
+  }
+  .form-inner { max-width: 440px; margin: 0 auto; }
+  h1 { font-size: 26px; }
+  .demo-box { margin-top: 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- Visueel paneel -->
+  <aside class="visual">
+    <div class="visual-brand">
+      <div class="visual-mark"><span class="material-symbols-rounded">child_care</span></div>
+      <div>
+        <div class="visual-brand-name">Op d'n Buiten</div>
+        <div class="visual-brand-sub">Kinderopvang Roosendaal</div>
+      </div>
+    </div>
+    <div class="visual-copy">
+      <h2>Een helder overzicht van elk kind.</h2>
+      <p>Volg observatiecycli, signaleer wat aandacht nodig heeft en houd grip op de planning — overal, op elk apparaat.</p>
+      <div class="visual-points">
+        <div class="visual-point"><span class="material-symbols-rounded">check</span> Alle observaties op één plek</div>
+        <div class="visual-point"><span class="material-symbols-rounded">check</span> Tijdig zien wat er speelt</div>
+        <div class="visual-point"><span class="material-symbols-rounded">check</span> Werkt vlot op mobiel</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Formulier -->
+  <main class="form-panel">
+    <div class="form-inner">
+      <div class="eyebrow">Welkom terug</div>
+      <h1>Log in op je portaal</h1>
+      <p class="intro">Vul je gegevens in om verder te gaan naar het overzicht.</p>
+
+      <div class="error-banner" id="error-banner">
+        <span class="material-symbols-rounded">error</span>
+        <span id="error-text">Ongeldige inloggegevens</span>
+      </div>
+
+      <form id="login-form" autocomplete="on">
+        <div class="field">
+          <label for="email">E-mailadres</label>
+          <input type="email" id="email" required placeholder="naam@opdnbuiten.nl" autocomplete="username" inputmode="email">
+        </div>
+        <div class="field">
+          <label for="password">Wachtwoord</label>
+          <input type="password" id="password" required placeholder="••••••••" autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn-login" id="login-btn">
+          Inloggen
+          <span class="material-symbols-rounded">arrow_forward</span>
+        </button>
+      </form>
+
+      <div class="demo-box">
+        <div class="demo-title">Demo-accounts — tik om in te vullen</div>
+        <button type="button" class="demo-account" onclick="fill('gail@opdnbuiten.nl','beheerder2026')">
+          <div class="demo-avatar" style="background:#26222B">GB</div>
+          <div class="demo-info">
+            <div class="demo-name">Gail Baselier</div>
+            <div class="demo-meta">gail@opdnbuiten.nl</div>
+          </div>
+          <span class="demo-role role-admin">Beheerder</span>
+        </button>
+        <button type="button" class="demo-account" onclick="fill('emma@opdnbuiten.nl','medewerker2026')">
+          <div class="demo-avatar" style="background:#0FA88C">EV</div>
+          <div class="demo-info">
+            <div class="demo-name">Emma de Vries</div>
+            <div class="demo-meta">emma@opdnbuiten.nl</div>
+          </div>
+          <span class="demo-role role-staff">Medewerker</span>
+        </button>
+        <div class="demo-hint">Wachtwoorden: beheerder2026 · medewerker2026</div>
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<script>
+function fill(email, password) {
+  document.getElementById('email').value = email;
+  document.getElementById('password').value = password;
+}
+function showError(msg) {
+  document.getElementById('error-text').textContent = msg;
+  document.getElementById('error-banner').classList.add('show');
+}
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('login-btn');
+  document.getElementById('error-banner').classList.remove('show');
+  btn.disabled = true;
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify({
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value
+      })
+    });
+    if (res.ok) {
+      window.location.href = '/';
+    } else {
+      const data = await res.json().catch(() => ({}));
+      showError(data.error || 'Inloggen mislukt');
+      btn.disabled = false;
+    }
+  } catch (err) {
+    showError('Kan geen verbinding maken met de server');
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

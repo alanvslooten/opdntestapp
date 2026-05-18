@@ -1,0 +1,14 @@
+{
+  "name": "observatie-app",
+  "version": "1.0.0",
+  "description": "Observatieoverzicht voor kinderopvang Op d'n Buiten — Material 3 webapplicatie met backend en authenticatie.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "private": true,
+  "license": "MIT"
+}
